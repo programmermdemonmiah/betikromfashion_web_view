@@ -74,6 +74,11 @@ class _WebViewPageState extends State<WebViewPage> {
         crossPlatform: InAppWebViewOptions(
           javaScriptEnabled: true,
           useShouldOverrideUrlLoading: true,
+          clearCache: true,
+          useOnDownloadStart: true,
+          useOnLoadResource: true,
+          allowFileAccessFromFileURLs: true,
+          allowUniversalAccessFromFileURLs: true,
         ),
       ),
       onWebViewCreated: (wcontroller) {
@@ -88,12 +93,15 @@ class _WebViewPageState extends State<WebViewPage> {
         return NavigationActionPolicy.ALLOW;
       },
       onLoadError: (controller, url, code, message) {
-        debugPrint('Load Error: $message');
+        debugPrint('Load Error: Code: $code, Message: $message');
       },
       onLoadHttpError: (controller, url, statusCode, description) {
-        debugPrint('HTTP Error: $description');
+        debugPrint(
+            'HTTP Error: StatusCode: $statusCode, Description: $description');
       },
       onReceivedServerTrustAuthRequest: (controller, challenge) async {
+        debugPrint(
+            'Server Trust Auth Request: ${challenge.protectionSpace.host}');
         return ServerTrustAuthResponse(
           action: ServerTrustAuthResponseAction.PROCEED,
         );

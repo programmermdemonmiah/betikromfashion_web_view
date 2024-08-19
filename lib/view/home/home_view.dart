@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<WebShowViewModel>(
       builder: (controller) {
-        return const WebViewPage(webUrl: "https://www.betikromfashion.com/");
+        return const WebViewPage(webUrl: "http://betikromfashion.com");
       },
     );
   }

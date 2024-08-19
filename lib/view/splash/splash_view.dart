@@ -177,15 +177,28 @@ class _SplashViewState extends State<SplashView> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               gapH(4),
-              Center(
-                child: Image.asset(
-                  AssetsImage.logo,
-                  // height: Get.height,
-                  // width: Get.width,
-                  // filterQuality: FilterQuality.high,
-                  fit: BoxFit.fitWidth,
-                ),
-                // child: Text("test"),
+              Column(
+                children: [
+                  Center(
+                    child: Image.asset(
+                      AssetsImage.logo,
+                      // height: Get.height,
+                      // width: Get.width,
+                      // filterQuality: FilterQuality.high,
+                      fit: BoxFit.fitWidth,
+                    ),
+                    // child: Text("test"),
+                  ),
+                  gapH(7),
+                  Text(
+                    'Since - 2010',
+                    style: TextStyle(
+                      color: AppColors.primaryColor,
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
